@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Board from "./components/Board.jsx";
+import Board from "./components/tic-tac-toe/Board.jsx";
+import Wordle from "./components/wordle/Wordle.jsx";
 
 const GAMES = [
   {
@@ -12,7 +13,7 @@ const GAMES = [
     id: "wordle",
     name: "Wordle",
     description: "Guess the hidden word in six tries.",
-    component: null, // not built yet
+    component: Wordle,
   },
 ];
 
