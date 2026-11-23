@@ -148,3 +148,62 @@ main h2 {
 #tab-content code {
   font-size: 1rem;
 }
+
+.game-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.game-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  aspect-ratio: 1;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: linear-gradient(140deg, #3b1670, #1c3d7a);
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.game-tile:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(3, 213, 255, 0.3);
+}
+
+.game-tile.soon {
+  opacity: 0.6;
+}
+
+.game-tile-name {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.game-tile-desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.game-tile-badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: #ea00ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
