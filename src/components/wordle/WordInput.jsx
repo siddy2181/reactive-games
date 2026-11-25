@@ -1,16 +1,19 @@
 import { useState } from 'react'
 
-export default function WordInput({ maxLen, onSubmit, disabled, type = 'text' }) {
+export default function WordInput({ maxLen, onSubmit, onChange, disabled, type = 'text', style }) {
     const [value, setValue] = useState('')
 
+    function update(next) {
+        setValue(next)
+        if (onChange) onChange(next)
+    }
+
     function handleChange(e) {
-        setValue(e.target.value.toLowerCase().replace(/[^a-z]/g, ''))
+        update(e.target.value.toLowerCase().replace(/[^a-z]/g, ''))
     }
 
     function handleKeyDown(e) {
-        if (e.key === 'Enter' && value.length === maxLen) {
-            if (onSubmit(value)) setValue('')
-        }
+        if (e.key === 'Enter' && onSubmit(value)) update('')
     }
 
     return (
@@ -22,6 +25,12 @@ export default function WordInput({ maxLen, onSubmit, disabled, type = 'text' })
             disabled={disabled}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
+            autoFocus
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            style={style}
         />
     )
 }
